@@ -2,7 +2,7 @@
 
 # Portal de Notícias
 
-Projeto de portal de notícias em PHP.
+Projeto de portal de notícias sobre esportes  em PHP.
 
 ## Funcionalidades
 - Cadastro, login e logout de usuários
