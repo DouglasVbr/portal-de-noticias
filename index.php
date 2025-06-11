@@ -149,7 +149,7 @@ $noticias = buscarNoticias();
     <footer class="bg-dark text-white text-center py-4 mt-5">
         <div class="container">
             <p>&copy; 2025 Portal Esporte Total. Todos os direitos reservados.</p>
-            <p>Desenvolvido como projeto acadêmico</p>
+            <p>Desenvolvido como projeto acadêmico por Douglas Vieira</p>
         </div>
     </footer>
 

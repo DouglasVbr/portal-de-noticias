@@ -24,9 +24,9 @@ CREATE TABLE noticias (
 
 -- Inserção de dados de exemplo
 INSERT INTO usuarios (nome, email, senha) VALUES 
-('Admin Esporte', 'admin@esporte.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'), -- senha: password
-('João Silva', 'joao@email.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
-('Maria Santos', 'maria@email.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+('Admin ', 'admin@esporte.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'), -- senha: password
+('Douglas, 'douglascanal1998@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
+('teste', 'teste@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
 
 INSERT INTO noticias (titulo, noticia, autor, imagem) VALUES 
 ('Flamengo vence clássico contra Vasco', 'Em um jogo emocionante no Maracanã, o Flamengo derrotou o Vasco por 3x1 na noite de ontem. Os gols foram marcados por Pedro, Gabigol e Arrascaeta, enquanto o Vasco descontou com Vegetti. A partida foi marcada por grande intensidade e shows da torcida rubro-negra.', 1, 'flamengo-vasco.jpg'),
