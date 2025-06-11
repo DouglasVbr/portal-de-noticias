@@ -1,10 +1,11 @@
-<p align="center">
-  <img src="imagens/684a03883ac96.png" alt="Foto de Douglas Vieira" width="120" height="120" style="border-radius: 50%; object-fit: cover;">
-</p>
+
 
 # Portal de Notícias
 
 Projeto de portal de notícias em PHP.
+
+![meurosto](https://github.com/user-attachments/assets/8cbf63e4-03e4-4638-ab07-fbaba6722ee4)
+
 
 ## Funcionalidades
 - Cadastro, login e logout de usuários
