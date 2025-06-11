@@ -22,7 +22,7 @@ CREATE TABLE noticias (
     FOREIGN KEY (autor) REFERENCES usuarios(id) ON DELETE CASCADE
 );
 
--- Inserção de dados de exemplo
+-- Inserção de dados 
 INSERT INTO usuarios (nome, email, senha) VALUES 
 ('Admin ', 'admin@esporte.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'), -- senha: password
 ('Douglas, 'douglascanal1998@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
