@@ -1,10 +1,8 @@
-<p align="center">
-  <img src="imagens/684a03883ac96.png" alt="Foto de Douglas Vieira" width="120" height="120" style="border-radius: 50%; object-fit: cover;">
-</p>
+
 
 # Portal de Notícias
 
-Projeto de portal de notícias em PHP.
+Projeto de portal de notícias sobre esportes  em PHP.
 
 ## Funcionalidades
 - Cadastro, login e logout de usuários
