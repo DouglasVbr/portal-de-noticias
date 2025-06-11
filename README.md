@@ -4,9 +4,6 @@
 
 Projeto de portal de notícias em PHP.
 
-![meurosto](https://github.com/user-attachments/assets/8cbf63e4-03e4-4638-ab07-fbaba6722ee4)
-
-
 ## Funcionalidades
 - Cadastro, login e logout de usuários
 - CRUD de notícias (criar, editar, excluir, listar)
