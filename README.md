@@ -48,4 +48,19 @@ Projeto de portal de notícias em PHP.
 - Navegador moderno
 
 ---
-Trabalho final para a disciplina de Desenvolvimento Web. 
+Trabalho final para a disciplina de Desenvolvimento Web II.
+
+## Quadro Kanban de Acompanhamento do Projeto
+
+### Grupo: Notícias de Esportes em Geral  
+**Integrantes:** Douglas Vieira
+
+| Etapa (Requisito)      | Descrição do Requisito                | Data Início | Data Entrega | Responsável    | Observações                  |
+|------------------------|---------------------------------------|-------------|--------------|----------------|------------------------------|
+| Levantamento de Dados  | Coletar informações iniciais do tema  | 01/06/2024  | 03/06/2024   | Douglas Vieira |                              |
+| Análise de Requisitos  | Definir requisitos do sistema         | 04/06/2024  | 06/06/2024   | Douglas Vieira |                              |
+| Prototipação           | Criar protótipo das telas             | 07/06/2024  | 10/06/2024   | Douglas Vieira |                              |
+| Desenvolvimento        | Programar funcionalidades principais  | 11/06/2024  | 18/06/2024   | Douglas Vieira |                              |
+| Testes                 | Testar todas as funcionalidades       | 19/06/2024  | 21/06/2024   | Douglas Vieira |                              |
+| Ajustes Finais         | Corrigir bugs e refinar o sistema     | 22/06/2024  | 24/06/2024   | Douglas Vieira |                              |
+| Entrega                | Apresentar o projeto final            | 25/06/2024  | 25/06/2024   | Douglas Vieira |                              | 
