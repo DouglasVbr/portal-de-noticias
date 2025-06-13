@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Salvar token no banco de dados
             if (salvarTokenRecuperacao($usuario['id'], $token, $expiracao)) {
                 // Enviar e-mail com link de recuperação
-                $link = "http://" . $_SERVER['HTTP_HOST'] . "/redefinir_senha.php?token=" . $token;
+                $link = "http://" . $_SERVER['HTTP_HOST'] . "/portal-de-noticias-1/redefinir_senha.php?token=" . $token;
                 $assunto = "Recuperação de Senha - Portal Esporte Total";
                 $corpo = "Olá " . $usuario['nome'] . ",\n\n";
                 $corpo .= "Você solicitou a recuperação de senha. Clique no link abaixo para redefinir sua senha:\n\n";
@@ -107,5 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <?php include 'footer.php'; ?>
 </body>
 </html> 

@@ -131,5 +131,9 @@ if ($_POST) {
             }
         });
     </script>
+
+    </main>
+
+    <?php include 'footer.php'; ?>
 </body>
 </html>

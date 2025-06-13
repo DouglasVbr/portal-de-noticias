@@ -149,31 +149,7 @@ $noticias = buscarNoticias();
         </div>
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-dark text-white text-center py-4 mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 mb-2">
-                    <h6>Contato</h6>
-                    <p>Email: contato@esportetotal.com.br<br>
-                    Telefone: (11) 99999-9999</p>
-                </div>
-                <div class="col-md-4 mb-2">
-                    <h6>Redes Sociais</h6>
-                    <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i> Facebook</a><br>
-                    <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i> Instagram</a><br>
-                    <a href="#" class="text-white"><i class="bi bi-twitter"></i> Twitter</a>
-                </div>
-                <div class="col-md-4 mb-2">
-                    <h6>Endereço</h6>
-                    <p>Rua do Esporte, 123<br>São Paulo - SP</p>
-                </div>
-            </div>
-            <hr class="bg-secondary">
-            <p class="mb-0">&copy; 2025 Portal Esporte Total. Todos os direitos reservados.</p>
-            <p class="mb-0">Desenvolvido como projeto acadêmico por Douglas Vieira</p>
-        </div>
-    </footer>
+    <?php include 'footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
