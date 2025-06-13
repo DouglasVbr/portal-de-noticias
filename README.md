@@ -1,8 +1,6 @@
-
-
 # Portal de Notícias
 
-Projeto de portal de notícias sobre esportes  em PHP.
+Projeto de portal de notícias sobre esportes em PHP.
 
 ## Funcionalidades
 - Cadastro, login e logout de usuários
@@ -11,6 +9,15 @@ Projeto de portal de notícias sobre esportes  em PHP.
 - Listagem pública das notícias na página inicial
 - Página individual para leitura da notícia
 - Interface responsiva (HTML/CSS, pode usar Bootstrap)
+
+## Tecnologias Utilizadas
+- PHP 7.4+
+- MySQL
+- HTML5
+- CSS3
+- Bootstrap 5
+- JavaScript
+- XAMPP (servidor local)
 
 ## Estrutura de Arquivos
 - `index.php` — Página inicial
@@ -30,24 +37,58 @@ Projeto de portal de notícias sobre esportes  em PHP.
 - `imagens/` — Imagens das notícias
 
 ## Banco de Dados
-- MySQL
-- Tabelas: `usuarios`, `noticias`
-- Veja o arquivo `dump.sql` para estrutura e exemplos
+### Tabela: usuarios
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- nome (VARCHAR(100))
+- email (VARCHAR(100), UNIQUE)
+- senha (VARCHAR(255))
+- data_cadastro (DATETIME)
+
+### Tabela: noticias
+- id (INT, AUTO_INCREMENT, PRIMARY KEY)
+- titulo (VARCHAR(200))
+- conteudo (TEXT)
+- imagem (VARCHAR(255))
+- data_publicacao (DATETIME)
+- autor_id (INT, FOREIGN KEY)
+- categoria (VARCHAR(50))
 
 ## Como rodar
 1. Clone o repositório
 2. Importe o `dump.sql` no seu MySQL
-3. Configure o acesso ao banco em `conexao.php`
+3. Configure o acesso ao banco em `conexao.php`:
+   ```php
+   $host = 'localhost';
+   $dbname = 'portal_noticias';
+   $usuario = 'seu_usuario';
+   $senha = 'sua_senha';
+   ```
 4. Coloque os arquivos em um servidor local (ex: XAMPP)
 5. Acesse `index.php` pelo navegador
 
 ## Personalização
 - Altere o tema, cores e logo conforme o tema do seu portal
+- Modifique as categorias de notícias em `funcoes.php`
+- Ajuste o layout em `style.css`
 
 ## Requisitos
 - PHP 7.4+
 - MySQL
 - Navegador moderno
+- XAMPP ou similar
+
+## Segurança
+- Senhas armazenadas com hash
+- Proteção contra SQL Injection
+- Validação de dados
+- Controle de sessão
+- Proteção de rotas
+
+## Manutenção
+- Backup regular do banco de dados
+- Atualização de dependências
+- Monitoramento de logs
+- Otimização de consultas
 
 ---
 Trabalho final para a disciplina de Desenvolvimento Web II.
