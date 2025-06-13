@@ -1,5 +1,6 @@
 <?php
 require_once 'verifica_login.php';
+require_once 'funcoes.php';
 
 $erro = '';
 $sucesso = '';
@@ -237,3 +238,4 @@ if ($_POST) {
     </script>
 </body>
 </html>
+

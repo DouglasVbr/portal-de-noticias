@@ -25,9 +25,8 @@ CREATE TABLE noticias (
 -- Inserção de dados 
 INSERT INTO usuarios (nome, email, senha) VALUES 
 ('Admin ', 'admin@esporte.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'), -- senha: password
-('Douglas, 'douglascanal1998@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
+('Douglas', 'douglascanal1998@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'),
 ('teste', 'teste@gmail.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
-
 INSERT INTO noticias (titulo, noticia, autor, imagem) VALUES 
 ('Flamengo vence clássico contra Vasco', 'Em um jogo emocionante no Maracanã, o Flamengo derrotou o Vasco por 3x1 na noite de ontem. Os gols foram marcados por Pedro, Gabigol e Arrascaeta, enquanto o Vasco descontou com Vegetti. A partida foi marcada por grande intensidade e shows da torcida rubro-negra.', 1, 'flamengo-vasco.jpg'),
 ('Copa do Mundo FIFA 2026: Preparativos intensificam', 'Com menos de dois anos para a Copa do Mundo de 2026, que será realizada nos Estados Unidos, México e Canadá, os preparativos se intensificam. As seleções já começam a definir suas estratégias e os estádios passam por reformas para receber o maior evento do futebol mundial.', 2, 'copa-2026.jpg'),

@@ -1,7 +1,12 @@
 <?php
 require_once 'funcoes.php';
 
-// Buscar todas as notícias
+// Iniciar sessão se não estiver iniciada
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// Buscar todas as notícias para exibir no feed principal
 $noticias = buscarNoticias();
 ?>
 <!DOCTYPE html>
@@ -11,6 +16,7 @@ $noticias = buscarNoticias();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Esporte Total</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -82,10 +88,8 @@ $noticias = buscarNoticias();
                 <?php else: ?>
                     <?php foreach ($noticias as $noticia): ?>
                         <article class="card mb-4 shadow-sm">
-                            <?php if ($noticia['imagem']): ?>
-                                <img src="imagens/<?php echo htmlspecialchars($noticia['imagem']); ?>" 
-                                     class="card-img-top news-image" alt="<?php echo htmlspecialchars($noticia['titulo']); ?>">
-                            <?php endif; ?>
+                            <img src="imagens/<?php echo !empty($noticia['imagem']) ? htmlspecialchars($noticia['imagem']) : 'padrao.jpg'; ?>" 
+                                 class="card-img-top news-image" alt="<?php echo htmlspecialchars($noticia['titulo']); ?>">
                             <div class="card-body">
                                 <h3 class="card-title">
                                     <a href="noticia.php?id=<?php echo $noticia['id']; ?>" class="text-decoration-none">
@@ -148,11 +152,28 @@ $noticias = buscarNoticias();
     <!-- Footer -->
     <footer class="bg-dark text-white text-center py-4 mt-5">
         <div class="container">
-            <p>&copy; 2025 Portal Esporte Total. Todos os direitos reservados.</p>
-            <p>Desenvolvido como projeto acadêmico por Douglas Vieira</p>
+            <div class="row">
+                <div class="col-md-4 mb-2">
+                    <h6>Contato</h6>
+                    <p>Email: contato@esportetotal.com.br<br>
+                    Telefone: (11) 99999-9999</p>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <h6>Redes Sociais</h6>
+                    <a href="#" class="text-white me-2"><i class="bi bi-facebook"></i> Facebook</a><br>
+                    <a href="#" class="text-white me-2"><i class="bi bi-instagram"></i> Instagram</a><br>
+                    <a href="#" class="text-white"><i class="bi bi-twitter"></i> Twitter</a>
+                </div>
+                <div class="col-md-4 mb-2">
+                    <h6>Endereço</h6>
+                    <p>Rua do Esporte, 123<br>São Paulo - SP</p>
+                </div>
+            </div>
+            <hr class="bg-secondary">
+            <p class="mb-0">&copy; 2025 Portal Esporte Total. Todos os direitos reservados.</p>
+            <p class="mb-0">Desenvolvido como projeto acadêmico por Douglas Vieira</p>
         </div>
     </footer>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

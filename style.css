@@ -65,9 +65,10 @@ body {
 
 /* Imagens das notícias */
 .news-image {
-    height: 200px;
+    max-height: 250px;
     object-fit: cover;
-    border-radius: 10px 10px 0 0;
+    width: 100%;
+    display: block;
 }
 
 /* Formulários */
