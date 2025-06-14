@@ -2,6 +2,27 @@
 body {
     background-color: #f8f9fa;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    opacity: 0;
+    animation: fadeIn 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.99);
+    }
+    30% {
+        opacity: 0.3;
+        transform: scale(0.995);
+    }
+    70% {
+        opacity: 0.7;
+        transform: scale(0.998);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 /* Header hero section */
@@ -33,12 +54,31 @@ body {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.9);
-    transition: color 0.3s ease;
+    color: rgba(86, 80, 80, 0.375);
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 1rem;
+    display: inline-block;
+}
+
+.navbar-dark .navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #433d3d5e;
+    transition: width 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover::after,
+.navbar-dark .navbar-nav .nav-link.active::after {
+    width: 100%;
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: #fff;
+    color: #524c4c48;
 }
 
 /* Cards de notícias */
@@ -252,4 +292,40 @@ footer {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+.fog-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: 9999;
+    animation: fogDissipate 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    pointer-events: none;
+    backdrop-filter: blur(20px);
+}
+
+@keyframes fogDissipate {
+    0% {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(20px);
+        opacity: 0.9;
+    }
+    30% {
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(12px);
+        opacity: 0.7;
+    }
+    70% {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(6px);
+        opacity: 0.4;
+    }
+    100% {
+        background: rgba(255, 255, 255, 0);
+        backdrop-filter: blur(0px);
+        opacity: 0;
+    }
 }

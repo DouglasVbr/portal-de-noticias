@@ -20,6 +20,7 @@ $noticias = buscarNoticias();
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="fog-overlay"></div>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -62,7 +63,7 @@ $noticias = buscarNoticias();
     <header class="hero-section text-white text-center py-5">
         <div class="container">
             <h1 class="display-4 fw-bold">Portal Esporte Total</h1>
-            <p class="lead">Sua fonte completa de notícias esportivas</p>
+            <p class="lead fw-bold text-uppercase" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5); letter-spacing: 1px; color: #ffffff;">Descubra as histórias mais emocionantes do mundo dos esportes, com cobertura exclusiva e atualizada 24 horas por dia!</p>
             <?php if (!verificarLogin()): ?>
                 <a href="cadastro.php" class="btn btn-primary btn-lg">Junte-se a nós!</a>
             <?php endif; ?>
