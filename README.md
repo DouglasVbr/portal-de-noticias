@@ -2,6 +2,13 @@
 
 Projeto de portal de notícias sobre esportes em PHP.
 
+### Grupo: Notícias de Esportes em Geral  
+
+[<img src="https://avatars.githubusercontent.com/u/130025057?s=400&u=f96f391fe5b875750f59ae9e4f601eaed19b9a33&v=4" width="75px"/>](https://github.com/DouglasVbr ) 
+
+ [Douglas Vieira](https://github.com/DouglasVbr)
+
+
 ## Funcionalidades
 - Cadastro, login e logout de usuários
 - CRUD de notícias (criar, editar, excluir, listar)
@@ -95,8 +102,6 @@ Trabalho final para a disciplina de Desenvolvimento Web II.
 
 ## Quadro Kanban de Acompanhamento do Projeto
 
-### Grupo: Notícias de Esportes em Geral  
-**Integrantes:** Douglas Vieira
 
 | Etapa (Requisito)      | Descrição do Requisito                | Data Início | Data Entrega | Responsável    | Observações                  |
 |------------------------|---------------------------------------|-------------|--------------|----------------|------------------------------|
