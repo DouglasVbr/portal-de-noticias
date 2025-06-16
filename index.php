@@ -20,7 +20,6 @@ $noticias = buscarNoticias();
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="fog-overlay"></div>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
@@ -149,6 +148,15 @@ $noticias = buscarNoticias();
             </div>
         </div>
     </main>
+
+    <div class="container mt-4">
+        <?php if (isset($_GET['sucesso']) && $_GET['sucesso'] === 'conta_excluida'): ?>
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                Sua conta foi excluída com sucesso. Esperamos vê-lo novamente em breve!
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        <?php endif; ?>
+    </div>
 
     <?php include 'footer.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

@@ -252,5 +252,23 @@ function atualizarSenha($usuario_id, $nova_senha) {
     return $stmt->execute([$senha_hash, $usuario_id]);
 }
 
+function excluirUsuario($id) {
+    global $pdo;
+    try {
+        // Primeiro, excluir todas as notícias do usuário
+        $stmt = $pdo->prepare("DELETE FROM noticias WHERE autor = ?");
+        $stmt->execute([$id]);
+        
+        // Depois, excluir o usuário
+        $stmt = $pdo->prepare("DELETE FROM usuarios WHERE id = ?");
+        $stmt->execute([$id]);
+        
+        return $stmt->rowCount() > 0;
+    } catch (PDOException $e) {
+        // error_log('Erro ao excluir usuário: ' . $e->getMessage());
+        return false;
+    }
+}
+
 ?>
 

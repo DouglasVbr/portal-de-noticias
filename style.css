@@ -2,49 +2,43 @@
 body {
     background-color: #f8f9fa;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    opacity: 0;
-    animation: fadeIn 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    opacity: 1;
+    animation: slideIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transform: translateX(-100%);
 }
 
-@keyframes fadeIn {
+@keyframes slideIn {
     0% {
+        transform: translateX(-100%);
         opacity: 0;
-        transform: scale(0.99);
     }
-    30% {
+    20% {
         opacity: 0.3;
-        transform: scale(0.995);
-    }
-    70% {
-        opacity: 0.7;
-        transform: scale(0.998);
     }
     100% {
+        transform: translateX(0);
         opacity: 1;
-        transform: scale(1);
     }
 }
 
 /* Header hero section */
 .hero-section {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    background-size: cover;
-    position: relative;
+    animation: slideInHero 1.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transform: translateX(-100%);
 }
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
-}
-
-.hero-section .container {
-    position: relative;
-    z-index: 1;
+@keyframes slideInHero {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    30% {
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 /* Navbar personalizada */
@@ -54,11 +48,15 @@ body {
 }
 
 .navbar-dark .navbar-nav .nav-link {
-    color: rgba(86, 80, 80, 0.375);
-    transition: all 0.3s ease;
+    color: #ffffff !important;
+    font-weight: bold;
+    transition: color 0.3s ease;
     position: relative;
     padding: 0.5rem 1rem;
     display: inline-block;
+    font-size: 1.1rem;
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+    opacity: 1 !important;
 }
 
 .navbar-dark .navbar-nav .nav-link::after {
@@ -68,7 +66,7 @@ body {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #433d3d5e;
+    background-color: #007bff;
     transition: width 0.3s ease;
 }
 
@@ -78,30 +76,33 @@ body {
 }
 
 .navbar-dark .navbar-nav .nav-link:hover {
-    color: #524c4c48;
+    color: #007bff;
 }
 
 /* Cards de notícias */
 .card {
-    border: none;
-    border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: slideInCard 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    transform: translateX(-100%);
+    opacity: 0;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+@keyframes slideInCard {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
-.card-title a {
-    color: #333;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.card-title a:hover {
-    color: #007bff;
-}
+/* Atraso progressivo para os cards */
+.card:nth-child(1) { animation-delay: 0.2s; }
+.card:nth-child(2) { animation-delay: 0.4s; }
+.card:nth-child(3) { animation-delay: 0.6s; }
+.card:nth-child(4) { animation-delay: 0.8s; }
+.card:nth-child(5) { animation-delay: 1s; }
 
 /* Imagens das notícias */
 .news-image {
@@ -295,37 +296,5 @@ footer {
 }
 
 .fog-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.7);
-    z-index: 9999;
-    animation: fogDissipate 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    pointer-events: none;
-    backdrop-filter: blur(20px);
-}
-
-@keyframes fogDissipate {
-    0% {
-        background: rgba(255, 255, 255, 0.7);
-        backdrop-filter: blur(20px);
-        opacity: 0.9;
-    }
-    30% {
-        background: rgba(255, 255, 255, 0.4);
-        backdrop-filter: blur(12px);
-        opacity: 0.7;
-    }
-    70% {
-        background: rgba(255, 255, 255, 0.2);
-        backdrop-filter: blur(6px);
-        opacity: 0.4;
-    }
-    100% {
-        background: rgba(255, 255, 255, 0);
-        backdrop-filter: blur(0px);
-        opacity: 0;
-    }
+    display: none;
 }

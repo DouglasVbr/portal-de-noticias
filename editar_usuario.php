@@ -113,7 +113,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     <button type="submit" class="btn btn-warning">Salvar Alterações</button>
                     <a href="dashboard.php" class="btn btn-secondary">Voltar ao Painel</a>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#excluirContaModal">
+                        Excluir Minha Conta
+                    </button>
                 </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação de Exclusão -->
+    <div class="modal fade" id="excluirContaModal" tabindex="-1" aria-labelledby="excluirContaModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="excluirContaModalLabel">Confirmar Exclusão de Conta</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-danger">⚠️ Atenção! Esta ação não pode ser desfeita.</p>
+                    <p>Tem certeza que deseja excluir sua conta? Todas as suas notícias serão excluídas permanentemente.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <form action="excluir_usuario.php" method="POST">
+                        <input type="hidden" name="confirmar" value="sim">
+                        <button type="submit" class="btn btn-danger">Sim, Excluir Minha Conta</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
