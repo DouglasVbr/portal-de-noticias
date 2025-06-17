@@ -224,11 +224,24 @@ footer {
 .dashboard-stats {
     background: linear-gradient(135deg, #28a745 0%, #1e7e34 100%);
     color: white;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
 .dashboard-stats h3 {
     font-size: 2.5rem;
     font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-stats p {
+    font-size: 0.9rem;
+    margin-bottom: 0;
 }
 
 /* Tabelas */

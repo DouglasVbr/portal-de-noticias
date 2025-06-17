@@ -91,6 +91,13 @@ Projeto de portal de notícias sobre esportes em PHP.
 - Controle de sessão
 - Proteção de rotas
 
+## Referências de Notícias
+- [World Aquatics muda regulamento para impedir aumento de casos de doping](https://www.cnnbrasil.com.br/esportes/outros-esportes/world-aquatics-muda-regulamento-para-impedir-aumento-de-casos-de-doping/)
+- [LeBron James tem reação inusitada após Mavericks conseguirem primeira escolha no draft](https://www.espn.com.br/nba/artigo/_/id/15173960/lebron-james-tem-reacao-inusitada-apos-mavericks-conseguirem-primeira-escolha-draft)
+- [Carrancas Futebol Americano estreia em casa na Liga BFA-Conferência Nordeste](https://ge.globo.com/pe/petrolina-regiao/noticia/2023/05/24/carrancas-futebol-americano-estreia-em-casa-na-liga-bfa-conferencia-nordeste.ghtml)
+- [Carlota Ciganda sobe no ranking mundial de golfe](https://www.marca.com/golf/lpga-tour/2025/06/16/carlota-ciganda-sube-espuma-ranking-mundial.html)
+- [Brasil se prepara para nova etapa da VNL feminina com retorno de Gabi](https://www.otempo.com.br/sports/volei/2025/6/16/brasil-se-prepara-para-nova-etapa-da-vnl-feminina-com-retorno-de-gabi-e-sequencia-forte-fora-de-casa)
+
 ## Manutenção
 - Backup regular do banco de dados
 - Atualização de dependências
