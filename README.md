@@ -19,12 +19,58 @@ Projeto de portal de notícias sobre esportes em PHP.
 
 ## Tecnologias Utilizadas
 - PHP 7.4+
+  - PDO para conexão com banco de dados
+  - Sessões para autenticação
+  - Funções nativas para manipulação de arquivos
 - MySQL
+  - Banco de dados relacional
+  - Índices para otimização
+  - Chaves estrangeiras para integridade referencial
 - HTML5
+  - Estrutura semântica
+  - Formulários interativos
+  - Suporte a multimídia
 - CSS3
+  - Flexbox e Grid para layout
+  - Media queries para responsividade
+  - Animações e transições
 - Bootstrap 5
+  - Sistema de grid responsivo
+  - Componentes pré-estilizados
+  - Utilitários CSS
 - JavaScript
+  - Validação de formulários
+  - Manipulação do DOM
+  - Requisições AJAX
 - XAMPP (servidor local)
+  - Apache como servidor web
+  - MySQL como servidor de banco de dados
+  - PHP como interpretador
+
+## Ferramentas de Desenvolvimento
+- Visual Studio Code
+  - Editor de código
+  - Extensões para PHP e MySQL
+  - Debugging integrado
+- Git e GitHub
+  - Controle de versão
+  - Gerenciamento de issues
+- phpMyAdmin
+  - Interface gráfica para MySQL
+  - Gerenciamento de banco de dados
+  - Importação/exportação de dados
+- Postman
+  - Teste de APIs
+  - Documentação de endpoints
+  - Coleções de requisições
+- Chrome DevTools
+  - Debugging de JavaScript
+  - Análise de performance
+  - Inspeção de elementos
+- Figma
+  - Design de interface
+  - Prototipagem
+  - Colaboração em design
 
 ## Estrutura de Arquivos
 - `index.php` — Página inicial
