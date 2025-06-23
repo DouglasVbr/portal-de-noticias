@@ -52,7 +52,10 @@ if ($_POST) {
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.php">🏆 Esporte Total</a>
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.php">
+                <img src="imagens/logo.png" alt="Logo Esporte Total" class="logo-folheto me-2">
+                Esporte Total
+            </a>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="index.php">Início</a>
                 <a class="nav-link" href="login.php">Login</a>

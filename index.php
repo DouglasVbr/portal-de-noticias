@@ -23,7 +23,10 @@ $noticias = buscarNoticias();
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.php">🏆 Esporte Total</a>
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.php">
+                <img src="imagens/logo.png" alt="Logo Esporte Total" class="logo-folheto me-2">
+                Esporte Total
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -92,9 +95,13 @@ $noticias = buscarNoticias();
                                  class="card-img-top news-image" alt="<?php echo htmlspecialchars($noticia['titulo']); ?>">
                             <div class="card-body">
                                 <h3 class="card-title">
-                                    <a href="noticia.php?id=<?php echo $noticia['id']; ?>" class="text-decoration-none">
-                                        <?php echo htmlspecialchars($noticia['titulo']); ?>
-                                    </a>
+                                    <?php if (verificarLogin()): ?>
+                                        <a href="noticia.php?id=<?php echo $noticia['id']; ?>" class="text-decoration-none">
+                                            <?php echo htmlspecialchars($noticia['titulo']); ?>
+                                        </a>
+                                    <?php else: ?>
+                                        <span><?php echo htmlspecialchars($noticia['titulo']); ?></span>
+                                    <?php endif; ?>
                                 </h3>
                                 <p class="card-text">
                                     <?php echo htmlspecialchars(criarResumo($noticia['noticia'])); ?>
@@ -104,9 +111,16 @@ $noticias = buscarNoticias();
                                         Por <strong><?php echo htmlspecialchars($noticia['autor_nome']); ?></strong>
                                         em <?php echo formatarData($noticia['data']); ?>
                                     </small>
-                                    <a href="noticia.php?id=<?php echo $noticia['id']; ?>" class="btn btn-outline-primary btn-sm">
-                                        Ler mais
-                                    </a>
+                                    <?php if (verificarLogin()): ?>
+                                        <a href="noticia.php?id=<?php echo $noticia['id']; ?>" class="btn btn-outline-primary btn-sm">
+                                            Ler mais
+                                        </a>
+                                    <?php else: ?>
+                                        <div>
+                                            <span class="text-danger fw-bold me-2">É necessário ter uma conta para ver as postagens completas.</span>
+                                            <a href="cadastro.php" class="btn btn-outline-primary btn-sm">Ler mais</a>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </article>

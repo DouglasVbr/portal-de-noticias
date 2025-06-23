@@ -14,33 +14,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $usuario = buscarUsuarioPorEmail($email);
         
         if ($usuario) {
-            // Gerar token único para recuperação de senha
-            $token = bin2hex(random_bytes(32));
-            $expiracao = date('Y-m-d H:i:s', strtotime('+1 hour'));
-            
-            // Salvar token no banco de dados
-            if (salvarTokenRecuperacao($usuario['id'], $token, $expiracao)) {
-                // Enviar e-mail com link de recuperação
-                $link = "http://" . $_SERVER['HTTP_HOST'] . "/portal-de-noticias-1/redefinir_senha.php?token=" . $token;
-                $assunto = "Recuperação de Senha - Portal Esporte Total";
-                $corpo = "Olá " . $usuario['nome'] . ",\n\n";
-                $corpo .= "Você solicitou a recuperação de senha. Clique no link abaixo para redefinir sua senha:\n\n";
-                $corpo .= $link . "\n\n";
-                $corpo .= "Este link expira em 1 hora.\n\n";
-                $corpo .= "Se você não solicitou esta recuperação, ignore este e-mail.\n\n";
-                $corpo .= "Atenciosamente,\nPortal Esporte Total";
-                
-                if (mail($email, $assunto, $corpo)) {
-                    $mensagem = "Instruções de recuperação de senha foram enviadas para seu e-mail.";
-                    $tipo_mensagem = "success";
-                } else {
-                    $mensagem = "Erro ao enviar e-mail. Por favor, tente novamente mais tarde.";
-                    $tipo_mensagem = "danger";
-                }
-            } else {
-                $mensagem = "Erro ao processar sua solicitação. Por favor, tente novamente mais tarde.";
-                $tipo_mensagem = "danger";
-            }
+            // Redirecionar para a página de editar usuário
+            $_SESSION['usuario_editar_id'] = $usuario['id'];
+            header("Location: editar_usuario.php");
+            exit();
         } else {
             $mensagem = "E-mail não encontrado em nossa base de dados.";
             $tipo_mensagem = "danger";
@@ -61,7 +38,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.php">🏆 Esporte Total</a>
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.php">
+                <img src="imagens/logo.png" alt="Logo Esporte Total" class="logo-folheto me-2">
+                Esporte Total
+            </a>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="index.php">Início</a>
                 <a class="nav-link" href="login.php">Login</a>
@@ -88,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <div class="mb-3">
                                     <label for="email" class="form-label">E-mail</label>
                                     <input type="email" class="form-control" id="email" name="email" required>
-                                    <div class="form-text">Digite seu e-mail cadastrado para receber as instruções de recuperação de senha.</div>
+                                    <div class="form-text">Digite seu e-mail cadastrado para acessar a página de edição de perfil.</div>
                                 </div>
                                 <div class="d-grid gap-2">
                                     <button type="submit" class="btn btn-primary">Enviar Instruções</button>

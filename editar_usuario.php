@@ -1,19 +1,26 @@
 <?php
-require_once 'verifica_login.php';
 require_once 'funcoes.php';
 
-// Redireciona se o usuário não estiver logado
-if (!isset($_SESSION['usuario_id'])) {
+// Verificar se o usuário está logado ou se veio da recuperação de senha
+if (!isset($_SESSION['usuario_id']) && !isset($_SESSION['usuario_editar_id'])) {
     header('Location: login.php');
     exit();
 }
 
-$usuario_id = $_SESSION['usuario_id'];
+// Determinar qual ID usar
+if (isset($_SESSION['usuario_editar_id'])) {
+    $usuario_id = $_SESSION['usuario_editar_id'];
+    $modo_recuperacao = true;
+} else {
+    $usuario_id = $_SESSION['usuario_id'];
+    $modo_recuperacao = false;
+}
+
 $usuario = buscarUsuarioPorId($usuario_id);
 
 if (!$usuario) {
-    // Tratar erro: usuário não encontrado, talvez redirecionar para uma página de erro ou dashboard
-    header('Location: dashboard.php');
+    // Tratar erro: usuário não encontrado
+    header('Location: login.php');
     exit();
 }
 
@@ -34,10 +41,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $sucesso = atualizarUsuario($usuario_id, $nome, $senha);
         if ($sucesso) {
-            $_SESSION['usuario_nome'] = $nome; // Atualiza o nome na sessão
-            $mensagem = 'Perfil atualizado com sucesso!';
-            $tipo_mensagem = 'success';
-            // Recarregar dados do usuário para refletir as mudanças (se necessário)
+            if ($modo_recuperacao) {
+                // Se veio da recuperação de senha, limpar a sessão e redirecionar para login
+                unset($_SESSION['usuario_editar_id']);
+                $mensagem = 'Senha atualizada com sucesso! Você já pode fazer login com sua nova senha.';
+                $tipo_mensagem = 'success';
+            } else {
+                $_SESSION['usuario_nome'] = $nome; // Atualiza o nome na sessão
+                $mensagem = 'Perfil atualizado com sucesso!';
+                $tipo_mensagem = 'success';
+            }
+            // Recarregar dados do usuário para refletir as mudanças
             $usuario = buscarUsuarioPorId($usuario_id);
         } else {
             $mensagem = 'Erro ao atualizar o perfil. Tente novamente.';
@@ -59,7 +73,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="index.php">🏆 Esporte Total</a>
+            <a class="navbar-brand fw-bold d-flex align-items-center" href="index.php">
+                <img src="imagens/logo.png" alt="Logo Esporte Total" class="logo-folheto me-2">
+                Esporte Total
+            </a>
+            <?php if (!$modo_recuperacao): ?>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -82,13 +100,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </li>
                 </ul>
             </div>
+            <?php else: ?>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="index.php">Início</a>
+                <a class="nav-link" href="login.php">Login</a>
+            </div>
+            <?php endif; ?>
         </div>
     </nav>
 
     <div class="container mt-4">
         <div class="card">
             <div class="card-header">
-                <h2 class="mb-0">Editar Perfil</h2>
+                <?php if ($modo_recuperacao): ?>
+                    <h2 class="mb-0">Redefinir Senha</h2>
+                <?php else: ?>
+                    <h2 class="mb-0">Editar Perfil</h2>
+                <?php endif; ?>
             </div>
             <div class="card-body">
                 <?php if ($mensagem): ?>
@@ -104,23 +132,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="text" class="form-control" id="nome" name="nome" value="<?php echo htmlspecialchars($usuario['nome']); ?>" required>
                     </div>
                     <div class="mb-3">
-                        <label for="senha" class="form-label">Nova Senha (deixe em branco para não alterar)</label>
-                        <input type="password" class="form-control" id="senha" name="senha">
+                        <label for="senha" class="form-label"><?php echo $modo_recuperacao ? 'Nova Senha' : 'Nova Senha (deixe em branco para não alterar)'; ?></label>
+                        <input type="password" class="form-control" id="senha" name="senha" <?php echo $modo_recuperacao ? 'required' : ''; ?>>
                     </div>
                     <div class="mb-3">
                         <label for="confirmar_senha" class="form-label">Confirmar Nova Senha</label>
-                        <input type="password" class="form-control" id="confirmar_senha" name="confirmar_senha">
+                        <input type="password" class="form-control" id="confirmar_senha" name="confirmar_senha" <?php echo $modo_recuperacao ? 'required' : ''; ?>>
                     </div>
-                    <button type="submit" class="btn btn-warning">Salvar Alterações</button>
-                    <a href="dashboard.php" class="btn btn-secondary">Voltar ao Painel</a>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#excluirContaModal">
-                        Excluir Minha Conta
+                    <button type="submit" class="btn btn-warning">
+                        <?php echo $modo_recuperacao ? 'Redefinir Senha' : 'Salvar Alterações'; ?>
                     </button>
+                    <?php if (!$modo_recuperacao): ?>
+                        <a href="dashboard.php" class="btn btn-secondary">Voltar ao Painel</a>
+                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#excluirContaModal">
+                            Excluir Minha Conta
+                        </button>
+                    <?php else: ?>
+                        <a href="login.php" class="btn btn-secondary">Cancelar</a>
+                    <?php endif; ?>
                 </form>
             </div>
         </div>
     </div>
 
+    <?php if (!$modo_recuperacao): ?>
     <!-- Modal de Confirmação de Exclusão -->
     <div class="modal fade" id="excluirContaModal" tabindex="-1" aria-labelledby="excluirContaModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -143,6 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         </div>
     </div>
+    <?php endif; ?>
 
     </main>
 
