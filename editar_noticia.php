@@ -79,6 +79,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Vídeo de fundo -->
+    <video class="video-background" autoplay muted loop>
+        <source src="view/fundo.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos.
+    </video>
+    <div class="video-overlay"></div>
+
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
