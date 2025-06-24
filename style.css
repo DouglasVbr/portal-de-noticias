@@ -1,6 +1,6 @@
 /* Estilos gerais */
 body {
-    background-color: #f8f9fa;
+    background-color: #f8f9fa2d;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     opacity: 0;
     animation: slideIn 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -53,7 +53,7 @@ main {
 }
 
 .card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(24, 22, 22, 0.282);
     backdrop-filter: blur(10px);
 }
 
@@ -411,4 +411,22 @@ footer {
     body {
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
+}
+
+.card, .card-title, .card-title a, .card-text, .card-body, .card small, .card strong {
+    color: #fff !important;
+    text-shadow: 1px 1px 4px #222, 0 0 2px #000;
+}
+
+.card-title a:hover {
+    color: #ffd700 !important;
+}
+
+.card .text-muted {
+    color: #e0e0e0 !important;
+}
+
+.card .text-danger {
+    color: #ff4444 !important;
+    text-shadow: 1px 1px 2px #000;
 }
