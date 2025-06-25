@@ -157,7 +157,7 @@ if ($_POST) {
                             
                             <div class="mb-3">
                                 <div class="card bg-light">
-                                    <div class="card-body">
+                                    <div class="card-body text-dark">
                                         <h6>📋 Dicas para uma boa notícia:</h6>
                                         <ul class="mb-0 small">
                                             <li>Use um título chamativo e descritivo</li>

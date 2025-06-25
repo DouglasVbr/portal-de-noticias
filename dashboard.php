@@ -78,7 +78,7 @@ $total_noticias = count($minhas_noticias);
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card bg-primary text-white text-center">
+                <div class="card bg-primary text-white text-center dashboard-stats">
                     <div class="card-body">
                         <h3><?php echo date('d/m/Y'); ?></h3>
                         <p class="mb-0">Data Atual</p>
@@ -86,7 +86,7 @@ $total_noticias = count($minhas_noticias);
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card bg-info text-white text-center">
+                <div class="card bg-info text-white text-center dashboard-stats">
                     <div class="card-body">
                         <h3>Ativo</h3>
                         <p class="mb-0">Status da Conta</p>
@@ -105,22 +105,22 @@ $total_noticias = count($minhas_noticias);
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-3 mb-2">
-                                <a href="nova_noticia.php" class="btn btn-success w-100">
+                                <a href="nova_noticia.php" class="btn btn-success w-100 btn-acao-rapida">
                                     📝 Nova Notícia
                                 </a>
                             </div>
                             <div class="col-md-3 mb-2">
-                                <a href="index.php" class="btn btn-primary w-100">
+                                <a href="index.php" class="btn btn-primary w-100 btn-acao-rapida">
                                     🏠 Ver Portal
                                 </a>
                             </div>
                             <div class="col-md-3 mb-2">
-                                <a href="editar_usuario.php" class="btn btn-warning w-100">
+                                <a href="editar_usuario.php" class="btn btn-warning w-100 btn-acao-rapida">
                                     👤 Editar Perfil
                                 </a>
                             </div>
                             <div class="col-md-3 mb-2">
-                                <a href="logout.php" class="btn btn-danger w-100">
+                                <a href="logout.php" class="btn btn-danger w-100 btn-acao-rapida">
                                     🚪 Sair
                                 </a>
                             </div>

@@ -134,28 +134,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <?php endif; ?>
 
                 <form action="editar_usuario.php" method="POST">
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="nome" class="form-label">Nome de Usuário</label>
                         <input type="text" class="form-control" id="nome" name="nome" value="<?php echo htmlspecialchars($usuario['nome']); ?>" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="senha" class="form-label"><?php echo $modo_recuperacao ? 'Nova Senha' : 'Nova Senha (deixe em branco para não alterar)'; ?></label>
                         <input type="password" class="form-control" id="senha" name="senha" <?php echo $modo_recuperacao ? 'required' : ''; ?>>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-4">
                         <label for="confirmar_senha" class="form-label">Confirmar Nova Senha</label>
                         <input type="password" class="form-control" id="confirmar_senha" name="confirmar_senha" <?php echo $modo_recuperacao ? 'required' : ''; ?>>
                     </div>
-                    <button type="submit" class="btn btn-warning">
+                    <button type="submit" class="btn btn-warning mb-3">
                         <?php echo $modo_recuperacao ? 'Redefinir Senha' : 'Salvar Alterações'; ?>
                     </button>
                     <?php if (!$modo_recuperacao): ?>
-                        <a href="dashboard.php" class="btn btn-secondary">Voltar ao Painel</a>
-                        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#excluirContaModal">
+                        <a href="dashboard.php" class="btn btn-secondary mb-3">Voltar ao Painel</a>
+                        <button type="button" class="btn btn-danger mb-3" data-bs-toggle="modal" data-bs-target="#excluirContaModal">
                             Excluir Minha Conta
                         </button>
                     <?php else: ?>
-                        <a href="login.php" class="btn btn-secondary">Cancelar</a>
+                        <a href="login.php" class="btn btn-secondary mb-3">Cancelar</a>
                     <?php endif; ?>
                 </form>
             </div>
