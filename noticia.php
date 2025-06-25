@@ -95,11 +95,19 @@ if (!$noticia) {
                             <?php echo nl2br(htmlspecialchars($noticia['noticia'])); ?>
                         </div>
                         <hr>
-                        <a href="index.php" class="btn btn-primary">↩️ Voltar para o Início</a>
-                        <?php if (verificarLogin() && $_SESSION['usuario_id'] == $noticia['autor']): ?>
-                            <a href="editar_noticia.php?id=<?php echo $noticia['id']; ?>" class="btn btn-warning">✏️ Editar</a>
-                            <a href="excluir_noticia.php?id=<?php echo $noticia['id']; ?>" class="btn btn-danger" onclick="return confirm('Tem certeza que deseja excluir esta notícia?');">🗑️ Excluir</a>
-                        <?php endif; ?>
+                        <div class="row g-3 mt-2">
+                            <div class="col-md-4">
+                                <a href="index.php" class="btn btn-primary btn-lg w-100">↩️ Voltar para o Início</a>
+                            </div>
+                            <?php if (verificarLogin() && $_SESSION['usuario_id'] == $noticia['autor']): ?>
+                                <div class="col-md-4">
+                                    <a href="editar_noticia.php?id=<?php echo $noticia['id']; ?>" class="btn btn-yellow btn-lg w-100">✏️ Editar</a>
+                                </div>
+                                <div class="col-md-4">
+                                    <a href="excluir_noticia.php?id=<?php echo $noticia['id']; ?>" class="btn btn-danger btn-lg w-100" onclick="return confirm('Tem certeza que deseja excluir esta notícia?');">🗑️ Excluir</a>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     </div>
                 </article>
             </div>
