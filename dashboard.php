@@ -17,7 +17,7 @@ $total_noticias = count($minhas_noticias);
 <body>
     <!-- Vídeo de fundo -->
     <video class="video-background" autoplay muted loop>
-        <source src="view/fundo.mp4" type="video/mp4">
+        <source src="view/fundo0.mp4" type="video/mp4">
         Seu navegador não suporta vídeos.
     </video>
     <div class="video-overlay"></div>
