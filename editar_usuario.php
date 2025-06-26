@@ -44,15 +44,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             if ($modo_recuperacao) {
                 // Se veio da recuperação de senha, limpar a sessão e redirecionar para login
                 unset($_SESSION['usuario_editar_id']);
-                $mensagem = 'Senha atualizada com sucesso! Você já pode fazer login com sua nova senha.';
-                $tipo_mensagem = 'success';
+                header('Location: login.php?sucesso=senha_atualizada');
+                exit();
             } else {
-                $_SESSION['usuario_nome'] = $nome; // Atualiza o nome na sessão
-                $mensagem = 'Perfil atualizado com sucesso!';
-                $tipo_mensagem = 'success';
+                // Se não é modo recuperação, redirecionar para login após atualização
+                header('Location: login.php?sucesso=perfil_atualizado');
+                exit();
             }
-            // Recarregar dados do usuário para refletir as mudanças
-            $usuario = buscarUsuarioPorId($usuario_id);
         } else {
             $mensagem = 'Erro ao atualizar o perfil. Tente novamente.';
             $tipo_mensagem = 'danger';

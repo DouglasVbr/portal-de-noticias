@@ -76,6 +76,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <?php if (isset($_GET['sucesso']) && $_GET['sucesso'] === 'cadastro'): ?>
                             <div class="alert alert-success">Cadastro realizado com sucesso! Faça seu login.</div>
                         <?php endif; ?>
+                        
+                        <?php if (isset($_GET['sucesso']) && $_GET['sucesso'] === 'perfil_atualizado'): ?>
+                            <div class="alert alert-success">Perfil atualizado com sucesso! Faça login novamente com suas credenciais.</div>
+                        <?php endif; ?>
+                        
+                        <?php if (isset($_GET['sucesso']) && $_GET['sucesso'] === 'senha_atualizada'): ?>
+                            <div class="alert alert-success">Senha atualizada com sucesso! Faça login com sua nova senha.</div>
+                        <?php endif; ?>
 
                         <form method="POST">
                             <div class="mb-3">
